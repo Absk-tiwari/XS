@@ -12,6 +12,8 @@ export const ProductsCarousel = ({ products }) => {
 
   const handleAddToCart = (id) => {
     const newProduct = products?.find((pd) => pd.id === id);
+    console.log([...cart, { ...newProduct, quantity: 1 }])
+    localStorage.setItem('xscart',JSON.stringify([...cart, { ...newProduct, quantity: 1 }]))
     setCart([...cart, { ...newProduct, quantity: 1 }]);
   };
 

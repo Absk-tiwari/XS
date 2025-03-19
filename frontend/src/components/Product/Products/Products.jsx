@@ -7,6 +7,7 @@ export const Products = ({ products }) => {
 
   const handleAddToCart = (id) => {
     const newProduct = products?.find((pd) => pd.id === id);
+   
     setCart([...cart, { ...newProduct, quantity: 1 }]);
   };
   return (

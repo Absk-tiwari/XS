@@ -13,7 +13,7 @@ const breadcrumbsData = [
   },
 ];
 const CartPage = () => {
-   useAuthGuard()
+  // useAuthGuard()
   return (
     <PublicLayout breadcrumb={breadcrumbsData} breadcrumbTitle='Cart'>
       <Cart />

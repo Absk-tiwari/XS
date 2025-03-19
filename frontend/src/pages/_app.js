@@ -5,6 +5,9 @@ export const AuthContext = createContext();
 export const CartContext = createContext();
 const MyApp = ({ Component, pageProps }) => {
   const [cart, setCart] = useState([]);
+  useEffect(()=>{
+    setCart(JSON.parse(localStorage.getItem('xscart')??'[]'))
+  },[])
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   return (

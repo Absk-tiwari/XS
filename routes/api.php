@@ -2,7 +2,6 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-
 Route::controller(App\Http\Controllers\ProductController::class)->group(function(){
     Route::get('index', 'index')->name('index');
     Route::get('get-product', 'getProduct')->name('getProduct');
@@ -15,6 +14,8 @@ Route::controller(App\Http\Controllers\ProductController::class)->group(function
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('/contact', [App\Http\Controllers\ContactController::class, 'store']);
 
 Route::controller(App\Http\Controllers\AuthController::class)->group(function(){
     Route::post('login', 'login');
