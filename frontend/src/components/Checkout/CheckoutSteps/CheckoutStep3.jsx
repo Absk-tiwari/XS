@@ -1,40 +1,52 @@
+import { useState, useEffect } from "react";
+
 export const CheckoutStep3 = () => {
+  const [reservedDate, setReservedDate] = useState("");
+  const [loadingDate, setLoadingDate] = useState("");
+
+  useEffect(() => {
+    const formatDate = (daysFromToday) => {
+      const date = new Date();
+      date.setDate(date.getDate() + daysFromToday); 
+      return date.toLocaleDateString("en-GB"); 
+    };
+
+    setReservedDate(formatDate(7)); 
+    setLoadingDate(formatDate(5)); 
+  }, []);
+
   return (
     <>
-      {/* <!-- BEING CHECKOUT STEP Three -->  */}
-      <div className='checkout-purchase checkout-form'>
+      {/* <!-- BEGIN CHECKOUT STEP THREE --> */}
+      <div className="checkout-purchase checkout-form">
         <h4>
-          BeShop thanks
+          Xytiles Studio thanks
           <br />
           you for your purchase!
         </h4>
         <p>
-          Consequat minim ipsum aliquip quis ullamco aliquip consequat aliquip
-          sit eu enim duis qui. Velit minim tempor non aliquip officia cillum.
-          Irure Lorem do enim sint in commodo. Ea ea nostrud labore mollit nisi.
-          Cupidatat esse minim mollit qui velit esse voluptate. Excepteur ad
-          officia dolore amet magna ipsum dolor incididunt excepteur ad non. Ea
-          ea qui irure excepteur est consectetur amet est exercitation in.
+        Beauty begins the moment you decide to be yourself. Thank you for letting us be a part of your journey!"
         </p>
-        <ul className='checkout-purchase__list'>
+        <ul className="checkout-purchase__list">
           <li>
-            <span>Order number</span>B-125724_75
+            <span>Order number</span> B-125724_75
           </li>
           <li>
-            <span>Order status</span>Awaiting payment
+            <span>Order status</span> Awaiting payment
           </li>
           <li>
-            <span>Reserved for</span>22.09.2020
+            <span>Reserved for</span> {reservedDate}
           </li>
           <li>
-            <span>Expected loading date</span>20.09.2020
+            <span>Expected loading date</span> {loadingDate}
           </li>
         </ul>
-        <a href='#' className='checkout-purchase__link'>
+        <a href="#" className="checkout-purchase__link">
           print a document -
         </a>
       </div>
-      {/* <!-- CHECKOUT STEP TWO EOF -->  */}
+      {/* <!-- CHECKOUT STEP THREE EOF --> */}
     </>
   );
 };
+
