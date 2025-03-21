@@ -3568,7 +3568,7 @@ blockquote,
 }
 
 .checkout {
-  padding-top: 240px;
+  padding-top: 150px;
   padding-bottom: 50px;
 
   .promo-video__decor {
@@ -3715,7 +3715,7 @@ blockquote,
 
   &-info {
     width: 540px;
-    padding-top: 55px;
+    // padding-top: 55px;
 
     .cart-bottom__total-num {
       margin-bottom: -2px;
@@ -3734,9 +3734,9 @@ blockquote,
 
     &__item {
       border: 1px solid #eeeeee;
-      padding: 20px 20px;
+      padding: 10px 20px;
       display: flex;
-      margin-bottom: 10px;
+      margin-bottom: 3px;
       padding-bottom: 13px;
 
       &:last-of-type {

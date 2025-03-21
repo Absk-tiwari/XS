@@ -1,15 +1,69 @@
+import { CartContext } from 'pages/_app';
+import { useContext, useState } from 'react';
 import Dropdown from 'react-dropdown';
+import toast from "react-hot-toast";
+import api from 'utils/api';
 
 const countries = [
   { label: 'Country 1', value: '1' },
   { label: 'Country 2', value: '2' },
 ];
 export const CheckoutStep1 = ({ onNext }) => {
+  const { cart,setCart } = useContext(CartContext);
+  const items = []
+  cart.forEach(a =>{
+      
+      let obj = {
+        name: a.name,
+        price: a.price * a.quantity,
+      }
+      items.push(obj)
+  })
+  const [formData, setFormData] = useState({
+      name: "",
+      phone: "",
+      deliveryaddress: "",
+      email: "",
+      city: "",
+      payment_method: "COD",
+      orderItems:items
+    });
+    const [status, setStatus] = useState(""); // Success/Error message
+    // Handle input changes
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+    // Handle form submission
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      try {
+        for (let key in formData) {
+          if (formData[key]=== ""){
+            return toast.error(key+ " is empty");
+          }
+        }
+     
+        const response = await api.post('/place-order', formData);
+        // const response = await api.post("/api/place-order", formData);
+        
+        if (response.data.status) {
+          toast.success("Ordered placed successfully!");
+          localStorage.removeItem('xscart')
+          setCart([])
+          onNext()
+        } else {
+          toast.error("Failed to place order!");
+        }
+      } catch (error) {
+        window.alert("error aaya hai" +error.message)
+        setStatus("An error occurred. Please try again.");
+      }
+    };
   return (
     <>
       {/* <!-- BEING CHECKOUT STEP ONE -->  */}
       <div className='checkout-form'>
-        <form onClick={(e) => e.preventDefault()}>
+        <form onSubmit={handleSubmit}>
           <div className='checkout-form__item'>
             <h4>Info about you</h4>
             <div className='box-field'>
@@ -17,21 +71,21 @@ export const CheckoutStep1 = ({ onNext }) => {
                 type='text'
                 className='form-control'
                 placeholder='Enter your name'
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
               />
             </div>
-            <div className='box-field'>
-              <input
-                type='text'
-                className='form-control'
-                placeholder='Enter your last name'
-              />
-            </div>
+           
             <div className='box-field__row'>
               <div className='box-field'>
                 <input
                   type='tel'
                   className='form-control'
                   placeholder='Enter your phone'
+                  name='phone'
+                  value={formData.phone}
+                  onChange={handleChange}
                 />
               </div>
               <div className='box-field'>
@@ -39,6 +93,9 @@ export const CheckoutStep1 = ({ onNext }) => {
                   type='email'
                   className='form-control'
                   placeholder='Enter your mail'
+                  onChange={handleChange}
+                  value={formData.email}
+                  name='email'
                 />
               </div>
             </div>
@@ -46,66 +103,35 @@ export const CheckoutStep1 = ({ onNext }) => {
           <div className='checkout-form__item'>
             <h4>Delivery Info</h4>
 
-            <Dropdown
-              options={countries}
-              className='react-dropdown'
-              onChange={(option) => console.log(option.value)}
-              placeholder='Select a country'
-            />
             <div className='box-field__row'>
               <div className='box-field'>
                 <input
                   type='text'
                   className='form-control'
                   placeholder='Enter the city'
+                  value={formData.city}
+                  onChange={handleChange}
+                  name='city'
                 />
               </div>
               <div className='box-field'>
                 <input
                   type='text'
                   className='form-control'
-                  placeholder='Enter the address'
+                  placeholder='Enter the full address'
+                  value={formData.address}
+                  onChange={handleChange}
+                  name='deliveryaddress'
                 />
               </div>
             </div>
-            <div className='box-field__row'>
-              <div className='box-field'>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='Delivery day'
-                />
-              </div>
-              <div className='box-field'>
-                <input
-                  type='text'
-                  className='form-control'
-                  placeholder='Delivery time'
-                />
-              </div>
-            </div>
+            
           </div>
-          <div className='checkout-form__item'>
-            <h4>Note</h4>
-            <div className='box-field box-field__textarea'>
-              <textarea
-                className='form-control'
-                placeholder='Order note'
-              ></textarea>
-            </div>
-            <label className='checkbox-box checkbox-box__sm'>
-              <input type='checkbox' />
-              <span className='checkmark'></span>
-              Create an account
-            </label>
-          </div>
+          
           <div className='checkout-buttons'>
-            {/* <button className='btn btn-grey btn-icon'>
-              {' '}
-              <i className='icon-arrow'></i> back
-            </button> */}
-            <button onClick={onNext} className='btn btn-icon btn-next'>
-              next <i className='icon-arrow'></i>
+            
+            <button className='btn btn-icon btn-next'>
+              place order 
             </button>
           </div>
         </form>

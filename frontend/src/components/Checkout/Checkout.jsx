@@ -35,7 +35,7 @@ export const Checkout = () => {
     <>
       <div className='wrapper'>
         {/* <!-- BEGIN DETAIL MAIN BLOCK --> */}
-        <div className='detail-block__items'>
+        {/* <div className='detail-block__items'>
           {detailBlocks.map((block, index) => (
             <div
               key={index}
@@ -61,7 +61,7 @@ export const Checkout = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
         {/* <!-- DETAIL MAIN BLOCK EOF --> */}
       </div>
 
@@ -75,7 +75,7 @@ export const Checkout = () => {
                   return <CheckoutStep1 onNext={handleNext} />;
                 case 2:
                   return (
-                    <CheckoutStep2 onNext={handleNext} onPrev={handlePrev} />
+                    <CheckoutStep3 />
                   );
                 case 3:
                   return <CheckoutStep3 />;

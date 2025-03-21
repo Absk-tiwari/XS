@@ -29,6 +29,12 @@ Route::controller(App\Http\Controllers\CategoryController::class)->group(functio
     Route::post('create-category', 'createCategory')->name('createCategory');
     Route::post('update-category', 'updateCategory')->name('updateCategory');
 });
+Route::controller(App\Http\Controllers\OrderController::class)->group(function(){
+    Route::post('place-order', 'create');
+    Route::post('/orders','store');
+    
+});
+
 
 Route::controller(App\Http\Controllers\ReviewController::class)->group(function(){
     Route::get('index', 'index')->name('index');
