@@ -45,7 +45,7 @@ export const Checkout = () => {
             >
               <div className='detail-block__item-icon'>
                 <img
-                  src={
+                  src={process.env.NEXT_PUBLIC_BASE_PATH+
                     activeStep <= index
                       ? '/assets/img/main-text-decor2.svg'
                       : '/assets/img/main-text-decor.svg'
@@ -91,7 +91,7 @@ export const Checkout = () => {
         </div>
         <img
           className='promo-video__decor js-img'
-          src='/assets/img/promo-video__decor.jpg'
+          src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/promo-video__decor.jpg'}
           alt=''
         />
       </div>

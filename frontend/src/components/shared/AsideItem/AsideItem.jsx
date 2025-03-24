@@ -8,7 +8,7 @@ export const AsideItem = ({ aside }) => {
       <Link href={`/product/${id}`}>
         <a className='shop-aside__item-product'>
           <div className='shop-aside__item-product-img'>
-            <img src={image} className='js-img' alt='' />
+            <img src={process.env.NEXT_PUBLIC_BASE_PATH+image} className='js-img' alt='' />
           </div>
           <div className='shop-aside__item-product-info'>
             <span className='shop-aside__item-product-title'>{name}</span>

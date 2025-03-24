@@ -16,12 +16,12 @@ export const Info = () => {
         <div
           className='info-blocks__item js-img'
           // style={{ backgroundImage: `url('/assets/img/info-item-bg1.jpg')` }}
-          style={{ backgroundImage: `url('/assets/img/products/1-fornt.png')` }}
+          style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH}/assets/img/products/1-fornt.png')` }}
         >
           <div className='wrapper'>
             <div className='info-blocks__item-img'>
               <img
-                src='/assets/img/products/1-fornt.png'
+                src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/products/1-fornt.png'}
                 className='js-img'
                 alt=''
               />
@@ -50,13 +50,13 @@ export const Info = () => {
         </div>
         <div
           className='info-blocks__item info-blocks__item-reverse js-img'
-          style={{ backgroundImage: `url('/assets/img/info-item-bg2.jpg')` }}
+          style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH}/assets/img/info-item-bg2.jpg')` }}
         >
           <div className='wrapper'>
             <div className='info-blocks__item-img'>
-              {/* <video src={url} /> */}
+              {/* <video src={process.env.NEXT_PUBLIC_BASE_PATH+url} /> */}
               <video width="100%" autoPlay muted loop style={videoStyle}>
-                <source src={url} type="video/mp4" />
+                <source src={process.env.NEXT_PUBLIC_BASE_PATH+url} type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>

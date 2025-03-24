@@ -10,7 +10,7 @@ export const PostComment = ({ blog }) => {
           <div className='post-comment'>
             <div className='post-comment__head'>
               <div className='post-comment__author'>
-                <img src={comment.authorImage} className='js-img' alt='' />
+                <img src={process.env.NEXT_PUBLIC_BASE_PATH+comment.authorImage} className='js-img' alt='' />
                 <span className='post-comment__name'>{comment.authorName}</span>
                 <span className='post-comment__date'>{comment.date}</span>
               </div>
@@ -24,7 +24,7 @@ export const PostComment = ({ blog }) => {
             <div key={index} className='post-comment post-comment__answer'>
               <div className='post-comment__head'>
                 <div className='post-comment__author'>
-                  <img src={answer.authorImage} className='js-img' alt='' />
+                  <img src={process.env.NEXT_PUBLIC_BASE_PATH+answer.authorImage} className='js-img' alt='' />
                   <span className='post-comment__name'>
                     {answer.authorName}
                   </span>
@@ -42,7 +42,7 @@ export const PostComment = ({ blog }) => {
 
       <div className='post-comment__form'>
         <div className='subscribe-form__img'>
-          <img src='/assets/img/subscribe-img.png' className='js-img' alt='' />
+          <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/subscribe-img.png'} className='js-img' alt='' />
         </div>
         <form>
           <h3>Leave a comment</h3>

@@ -6,7 +6,7 @@ export const Card = ({ testimonial }) => {
       <div className='testimonials-slide'>
         <p>{body}</p>
         <div className='testimonials-author'>
-          <img src={image} className='js-img' alt='' />
+          <img src={process.env.NEXT_PUBLIC_BASE_PATH+image} className='js-img' alt='' />
           <h5>{name}</h5>
         </div>
       </div>

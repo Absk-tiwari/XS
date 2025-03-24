@@ -21,7 +21,7 @@ export const Banner = () => {
         </div>
         <img
           className='main-block__decor'
-          src='/assets/img/main-block-decor.png'
+          src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/main-block-decor.png'}
           alt=''
         />
       </div>

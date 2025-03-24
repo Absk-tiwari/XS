@@ -1,3 +1,4 @@
+import { CookiesProvider } from 'react-cookie'
 import { createContext, useEffect, useState } from 'react';
 import '../styles/styles.scss';
 
@@ -11,11 +12,13 @@ const MyApp = ({ Component, pageProps }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   return (
+    <CookiesProvider>
     <AuthContext.Provider value={{ user, loading }}>
       <CartContext.Provider value={{ cart, setCart }}>
         <Component {...pageProps} />
       </CartContext.Provider>
     </AuthContext.Provider>
+    </CookiesProvider>
   );
 };
 

@@ -40,7 +40,7 @@ export const ProductDetails = () => {
     setCart([...cart, newProduct]);
   };
 
-  if (!product) return <></>;
+  if (!product) return <p>Loading...</p>;
   return (
     <>
       {/* <!-- BEGIN PRODUCT --> */}
@@ -67,7 +67,7 @@ export const ProductDetails = () => {
                           <span className='products-item__new'>new</span>
                         )}
                       </div>
-                      <img src={img} alt='product' />
+                      <img src={process.env.NEXT_PUBLIC_BASE_PATH+img} alt='product' />
                     </div>
                   ))}
                 </Slider>
@@ -85,7 +85,7 @@ export const ProductDetails = () => {
                 >
                   {product.imageGallery.map((img, index) => (
                     <div key={index} className='product-slider__nav-item'>
-                      <img src={img} alt='product' />
+                      <img src={process.env.NEXT_PUBLIC_BASE_PATH+img} alt='product' />
                     </div>
                   ))}
                 </Slider>
@@ -226,7 +226,7 @@ export const ProductDetails = () => {
         </div>
         <img
           className='promo-video__decor js-img'
-          src='/assets/img/promo-video__decor.jpg'
+          src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/promo-video__decor.jpg'}
           alt=''
         />
       </div>

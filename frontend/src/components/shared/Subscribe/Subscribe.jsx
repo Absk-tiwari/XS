@@ -7,7 +7,7 @@ export const Subscribe = () => {
           <div className='subscribe-form'>
             <div className='subscribe-form__img'>
               <img
-                src='/assets/img/products/3.png'
+                src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/products/3.png'}
                 className='js-img'
                 height={470}
                 alt=''

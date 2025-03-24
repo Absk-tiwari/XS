@@ -8,7 +8,7 @@ export const DetailBlock = ({ detailBlocks }) => {
             <div key={index} className={`detail-block__item`}>
               <div className='detail-block__item-icon'>
                 <img
-                  src='/assets/img/main-text-decor.svg'
+                  src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/main-text-decor.svg'}
                   className='js-img'
                   alt=''
                 />

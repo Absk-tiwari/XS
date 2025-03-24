@@ -32,7 +32,6 @@ Route::controller(App\Http\Controllers\CategoryController::class)->group(functio
 Route::controller(App\Http\Controllers\OrderController::class)->group(function(){
     Route::post('place-order', 'create');
     Route::post('/orders','store');
-    
 });
 
 

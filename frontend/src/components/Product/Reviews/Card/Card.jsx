@@ -6,7 +6,7 @@ export const Card = ({ review }) => {
       <div className='review-item'>
         <div className='review-item__head'>
           <div className='review-item__author'>
-            <img src={author.image} className='js-img' alt='' />
+            <img src={process.env.NEXT_PUBLIC_BASE_PATH+author.image} className='js-img' alt='' />
             <span className='review-item__name'>{author.name}</span>
             <span className='review-item__date'>{reviewDate}</span>
           </div>

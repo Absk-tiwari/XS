@@ -31,7 +31,7 @@ export const Footer = () => {
             <div className='footer-top__logo'>
               <Link href='/'>
                 <a>
-                  <img src={footerLogo} height={100} className='js-img' alt='' />
+                  <img src={process.env.NEXT_PUBLIC_BASE_PATH+footerLogo} height={100} className='js-img' alt='' />
                 </a>
               </Link>
             </div>
@@ -41,7 +41,7 @@ export const Footer = () => {
               <ul>
                 {paymentMethods.map((payment, index) => (
                   <li key={index}>
-                    <img src={payment.icon} className='js-img' alt='' />
+                    <img src={process.env.NEXT_PUBLIC_BASE_PATH+payment.icon} className='js-img' alt='' />
                   </li>
                 ))}
               </ul>

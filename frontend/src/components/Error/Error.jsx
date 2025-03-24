@@ -32,7 +32,7 @@ export const Error = () => {
               </div>
             </div>
             <div className='error-page__img'>
-              <img src='/assets/img/error-img.jpg' className='js-img' alt='' />
+              <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/error-img.jpg'} className='js-img' alt='' />
             </div>
           </div>
         </div>

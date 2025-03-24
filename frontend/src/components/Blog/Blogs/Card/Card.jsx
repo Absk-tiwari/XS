@@ -6,7 +6,7 @@ export const Card = ({ blog }) => {
     <div className='blog-item'>
       <Link href={`/blog/${id}`}>
         <a className='blog-item__img'>
-          <img src={image} className='js-img' alt='' />
+          <img src={process.env.NEXT_PUBLIC_BASE_PATH+image} className='js-img' alt='' />
           <span className='blog-item__date'>
             <span>{date.month}</span> {date.date}
           </span>

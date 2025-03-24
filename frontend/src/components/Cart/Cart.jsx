@@ -112,7 +112,7 @@ export const Cart = () => {
         </div>
         <img
           className='promo-video__decor js-img'
-          src='assets/img/promo-video__decor.jpg'
+          src={process.env.NEXT_PUBLIC_BASE_PATH+'assets/img/promo-video__decor.jpg'}
           alt=''
         />
       </div>

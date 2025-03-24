@@ -16,9 +16,9 @@ export const Card = ({ cart, onChangeQuantity }) => {
     <>
       <div className='cart-table__row'>
         <div className='cart-table__col'>
-          <Link href={`/product/${id}`}>
+          <Link href={`/product?id=${id}`}>
             <a className='cart-table__img'>
-              <img src={image} className='js-img' alt='' />
+              <img src={process.env.NEXT_PUBLIC_BASE_PATH+image} className='js-img' alt='' />
             </a>
           </Link>
           <div className='cart-table__info'>

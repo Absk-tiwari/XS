@@ -14,7 +14,7 @@ export const ReviewFrom = () => {
       {/* <!-- Product Review Form --> */}
       <div className='product-detail__form post-comment__form'>
         <div className='subscribe-form__img'>
-          <img src='/assets/img/subscribe-img.png' />
+          <img src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/subscribe-img.png'} />
         </div>
         <form>
           <h4>leave a review</h4>

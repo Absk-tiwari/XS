@@ -36,7 +36,7 @@ export const Wishlist = () => {
         </div>
         <img
           className='promo-video__decor js-img'
-          data-src='/assets/img/promo-video__decor.jpg'
+          data-src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/promo-video__decor.jpg'}
           alt=''
         />
       </div>

@@ -35,16 +35,18 @@ class AuthController extends Controller
         if (!$user) {
             return response()->json(['error' => 'User not found'], 404);
         }
-    
-        Log::info('Stored password:', ['password' => $user->password]);
-        Log::info('Entered password:', ['password' => $request->password]);
+        // Log::info('Stored password:', ['password' => $user->password]);
+        // Log::info('Entered password:', ['password' => $request->password]);
     
         if (!Hash::check('121212', $user->password)) {
             return response()->json(['error' => 'Password is incorrect'], 401);
         }
     
         $token = $user->createToken('authToken')->plainTextToken;
-        return response()->json(['token' => $token, 'user' => $user]);
+        return response()->json([
+            'token' => $token, 
+            'user' => $user
+        ]);
 
     }
 

@@ -1,7 +1,8 @@
 import { MostViewed } from 'components/shared/MostViewed/MostViewed';
 import { ProductDetails } from 'components/Product/ProductDetails/ProductDetails';
-
-const { PublicLayout } = require('layout/PublicLayout');
+import {PublicLayout} from 'layout/PublicLayout';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 const breadcrumbsData = [
   {
@@ -18,10 +19,12 @@ const breadcrumbsData = [
   },
 ];
 const ProductPage = () => {
+  const router = useRouter();
+  const {id} = router.query
   return (
     <PublicLayout breadcrumb={breadcrumbsData} breadcrumbTitle='Shop'>
-      <ProductDetails />
-      <MostViewed />
+      {id ? <ProductDetails product={id} />: <ProductDetails />}
+      <MostViewed additionalClass={id? 'product-viewed':''}/>
     </PublicLayout>
   );
 };

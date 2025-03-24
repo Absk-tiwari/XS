@@ -16,9 +16,9 @@ export const SingleProduct = ({
           {isNew && <span className='products-item__new'>new</span>}
         </div>
         <div className='products-item__img'>
-          <img src={image} className='js-img' alt='' />
+          <img src={process.env.NEXT_PUBLIC_BASE_PATH+image} className='js-img' alt='' />
           <div className='products-item__hover'>
-            <Link href={`#`}>
+            <Link href={`/product?id=${id}`}>
               <a>
                 <i className='icon-search'></i>
               </a>

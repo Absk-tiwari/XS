@@ -19,7 +19,7 @@ export const ProfileAside = () => {
             subscribe
           </button>
           <img
-            src='/assets/img/subscribe-img-decor-sm.png'
+            src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/subscribe-img-decor-sm.png'}
             className='js-img'
             alt=''
           />
@@ -30,7 +30,7 @@ export const ProfileAside = () => {
             <div key={product.id} className='profile-aside__viewed-item'>
               <Link href={`/product/${product.id}`}>
                 <a className='profile-aside__viewed-item-img'>
-                  <img src={product.image} className='js-img' alt='' />
+                  <img src={process.env.NEXT_PUBLIC_BASE_PATH+product.image} className='js-img' alt='' />
                 </a>
               </Link>
               <div className='profile-aside__viewed-item-info'>
@@ -48,7 +48,7 @@ export const ProfileAside = () => {
         </div>
         <div
           className='profile-aside__discount js-img'
-          style={{ backgroundImage: `url('/assets/img/discount-bg-sm.jpg')` }}
+          style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH}/assets/img/discount-bg-sm.jpg')` }}
         >
           <div className='profile-aside__discount-title'>
             Get Your

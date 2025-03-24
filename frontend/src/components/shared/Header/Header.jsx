@@ -58,7 +58,7 @@ export const Header = () => {
           <div className='header-logo'>
             <Link href='/'>
               <a>
-                <img src={header.logo} style={{height:100}} alt='' />
+                <img src={process.env.NEXT_PUBLIC_BASE_PATH+header.logo} style={{height:100}} alt='' />
               </a>
             </Link>
           </div>

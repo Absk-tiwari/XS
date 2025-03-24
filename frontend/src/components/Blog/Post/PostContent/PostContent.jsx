@@ -6,7 +6,7 @@ export const PostContent = ({ blog }) => {
       <div className='post-top'>
         <h2>{blog.title}</h2>
         <p>{blog.subTitle}</p>
-        <img src={blog.image} className='js-img' alt='' />
+        <img src={process.env.NEXT_PUBLIC_BASE_PATH+blog.image} className='js-img' alt='' />
         <ul className='post-top__info'>
           <li className='post-top__date'>
             <i className='icon-date'></i>
@@ -45,7 +45,7 @@ export const PostContent = ({ blog }) => {
         </ul>
         <div
           className='discount discount-about js-img'
-          style={{ backgroundImage: `url(${blog.discount.thumb})` }}
+          style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH+"/"+blog.discount.thumb})` }}
         >
           <div className='wrapper'>
             <div className='discount-info'>

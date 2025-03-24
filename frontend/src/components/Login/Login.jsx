@@ -26,7 +26,7 @@ export const Login = () => {
         <div className='wrapper'>
           <div
             className='login-form js-img'
-            style={{ backgroundImage: `url('/assets/img/login-form__bg.png')` }}
+            style={{ backgroundImage: `url('${process.env.NEXT_PUBLIC_BASE_PATH}/assets/img/login-form__bg.png')` }}
           >
             <form onSubmit={handleSubmit}>
               <h3>log in </h3>
@@ -72,7 +72,7 @@ export const Login = () => {
         </div>
         <img
           className='promo-video__decor js-img'
-          src='/assets/img/promo-video__decor.jpg'
+          src={process.env.NEXT_PUBLIC_BASE_PATH+'/assets/img/promo-video__decor.jpg'}
           alt=''
         />
       </div>
